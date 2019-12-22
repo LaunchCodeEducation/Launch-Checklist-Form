@@ -36,12 +36,14 @@ window.addEventListener("load", function(){
       fuelLevelInput.value === '' || cargoMassInput.value === ''){
         alert("All fields are required!");
         event.preventDefault();
+        faultyItems.style.visibility = "hidden"
       }
 
     if(!isNaN(pilotNameInput.value) || !isNaN(copilotNameInput.value) || 
       isNaN(fuelLevelInput.value) || isNaN(cargoMassInput.value)){
         alert("Please enter the propriate answer");
         event.preventDefault()
+        faultyItems.style.visibility = "hidden"
       }
 
       let formSubmit = document.getElementById("formSubmit");
@@ -52,17 +54,6 @@ window.addEventListener("load", function(){
       let fuelStatus = document.getElementById("fuelStatus")
       let cargoStatus = document.getElementById("cargoStatus")
       let checkReady = true
-      function assignment(){`
-        <h2 id="launchStatus">${launchStatus.innerHTML}</h2>
-         <div id = "faultyItems">
-            <ol>
-               <li id="pilotStatus">${pilotStatus.innerHTML}</li>
-               <li id="copilotStatus">${copilotStatus.innerHTML}</li>
-               <li id="fuelStatus">${fuelStatus.innerHTML}</li>
-               <li id="cargoStatus">${cargoStatus.innerHTML}</li>
-            </ol>
-         </div>`
-      }
 
       if(fuelLevelInput.value < 10000 && cargoMassInput.value < 10000 && checkReady){
                         
@@ -78,40 +69,43 @@ window.addEventListener("load", function(){
 
       if(fuelLevelInput.value > 10000 && cargoMassInput.value > 10000 && checkReady){
                         
-            launchStatus.innerHTML = "Shuttle not ready for launch"
-            pilotStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready`
-            copilotStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready`
-            launchStatus.style.color = "red";
-            faultyItems.style.visibility = "visible"
-            fuelStatus.innerHTML = `Fuel level high enough for launch`
-            cargoStatus.innerHTML = `Cargo mass level high for launch`
-            checkReady = false
+          launchStatus.innerHTML = "Shuttle not ready for launch"
+          pilotStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready`
+          copilotStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready`
+          launchStatus.style.color = "red";
+          faultyItems.style.visibility = "visible"
+          fuelStatus.innerHTML = `Fuel level high enough for launch`
+          cargoStatus.innerHTML = `Cargo mass level high for launch`
+          checkReady = false
       }
 
       if(fuelLevelInput.value < 10000 && cargoMassInput.value > 10000 && checkReady){
                         
-            launchStatus.innerHTML = "Shuttle not ready for launch"
-            pilotStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready`
-            copilotStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready`
-            launchStatus.style.color = "red";
-            faultyItems.style.visibility = "visible"
-            fuelStatus.innerHTML = `Fuel level too low for launch`
-            cargoStatus.innerHTML = `Cargo mass level high for launch`
-            checkReady = false
+          launchStatus.innerHTML = "Shuttle not ready for launch"
+          pilotStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready`
+          copilotStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready`
+          launchStatus.style.color = "red";
+          faultyItems.style.visibility = "visible"
+          fuelStatus.innerHTML = `Fuel level too low for launch`
+          cargoStatus.innerHTML = `Cargo mass level high for launch`
+          checkReady = false
       }
 
       if (checkReady){
-         faultyItems.style.visibility = "hidden";
+         
+         faultyItems.style.visibility = "visible";
          launchStatus.innerHTML = 'Shuttle ready for launch';
+         pilotStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready`
+         copilotStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready`
          launchStatus.style.color = "green";
-         assignment();
+         fuelStatus.innerHTML = `Fuel level high enough for launch`
+         cargoStatus.innerHTML = `Cargo mass level low enough for launch`
          event.preventDefault();
       } else {
-         assignment();
          checkReady = true;
          event.preventDefault();
       }
       
-});
+  });
 });
 
