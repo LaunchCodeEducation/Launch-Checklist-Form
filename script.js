@@ -31,6 +31,8 @@ window.addEventListener("load", function() {
          event.preventDefault();
       }else{
          document.getElementById("cargoStatus").innerHTML = 'Cargo mass low enough for launch';
+         document.getElementById("launchStatus").style.color ="green";
+         document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch`;
       }
       if (typeof pilotName.value !== "string" || typeof copilotName.value !== "string" ) {
          alert("Pilot names must be letters only")
@@ -40,8 +42,11 @@ window.addEventListener("load", function() {
       document.getElementById("pilotStatus").innerHTML = `${pilotName.value} Ready`;
       document.getElementById("copilotStatus").innerHTML = `${copilotName.value} Ready`;
       // document.getElementById("faultyItems").innerHTML =`<li id="pilotStatus"> ${pilotName.value} Ready</li><li id="copilotStatus">${copilotName.value} Ready</li><li id="fuelStatus">Fuel level high enough for launch</li><li id="cargoStatus">Cargo mass low enough for launch</li></ol>`;
+      document.getElementById("launchStatus").style.color ="green";
+      document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch`;
    });
-   
+   // document.getElementById("launchStatus").style.color ="green";
+   // document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch`;
 });
 
 
