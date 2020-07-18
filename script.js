@@ -14,6 +14,10 @@ window.addEventListener("load", function() {
          alert("Fuel Level and Cargo Mass must be numbers")
          event.preventDefault();
       }
+      if (typeof pilotName.value !== "string" || typeof copilotName.value !== "string" ) {
+         alert("Pilot names must be letters only")
+         event.preventDefault();
+      }
    });
 });
 
