@@ -66,27 +66,6 @@ window.addEventListener("load", function() {
          cargoStatus.innerHTML = `Cargo mass low enough for launch`;
 
       }
-      // if (cargoMass.value > 10000) {
-      //    document.getElementById("cargoStatus").innerHTML = 'Too much mass for shuttle to take off (must be less than 10k kg)';
-      //    document.getElementById("launchStatus").style.color = "red";
-      //    document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`
-      //    submit.preventDefault();
-      // }else{
-      //    document.getElementById("cargoStatus").innerHTML = 'Cargo mass low enough for launch';
-      // }
-      
-      // if (fuelLevel.value < 10000) {
-      //    document.getElementById("faultyItems").style.visibility = "visible";
-      //    document.getElementById("fuelStatus").innerHTML = `Not enough Fuel for Journey (must be 10k liters or more)`;
-      //    document.getElementById("launchStatus").style.color = "red";
-      //    document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch`
-      // }else{
-      //    document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`;
-      //    document.getElementById("launchStatus").style.color ="green";
-      //    document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch`;
-      // }
-      // submit.preventDefault();
-
    });
    /* FETCH PLANETARY JSON */
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
