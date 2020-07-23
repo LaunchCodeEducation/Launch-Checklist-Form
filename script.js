@@ -66,3 +66,4 @@ window.addEventListener("load", function() {
       });
    });
 });
+/*NOTES AT THE BOTTOM */
