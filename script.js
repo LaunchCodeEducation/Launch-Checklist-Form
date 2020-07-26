@@ -23,29 +23,44 @@ window.addEventListener("load", function() {
       }
      
       /*PILOT NAME PLACEMENT */
-      if (pilotName.value === ""){
-         pilotStatus.innerHTML ="PILOT NOT SELECTED";
+      function allLetter(inputtxt) {
+         const letters = /^[A-Za-z]+$/;
+         if(inputtxt.value.match(letters)) {
+            return true;
+         }else{       
+            return false;
+         }
+      };
+      
+      if ((allLetter(pilotName)) || (allLetter(copilotName)) === false) {
+         alert("Please only use letters for designating Pilot & CoPilot");
          submit.preventDefault();
+      }
+
+      if ((allLetter(pilotName))=== false) {
+         pilotStatus.innerHTML ="PILOT NOT SELECTED";
       }else{
          pilotStatus.innerHTML = `${pilotName.value} is ready for Launch`;
       }
-      if(copilotName.value ===""){
+
+      if((allLetter(copilotName))=== false) {
          copilotStatus.innerHTML ="COPILOT NOT SELECTED";
-         submit.preventDefault();
       }else{
          copilotStatus.innerHTML = `${copilotName.value} is ready for Launch`;         
       }
-
+      
       /* NUMBER ON LEVELS CHECK */
       if ((isNaN(fuelLevel.value)) === true || (isNaN(cargoMass.value)) === true) {
          alert("Enter Valid Information for each field, please.")
          submit.preventDefault();
-       }
-      if(fuelLevel.value < 10000 || cargoMass.value > 10000){
+      }else{
          document.getElementById("faultyItems").style.visibility = "visible";
+      }  
+
+      if(fuelLevel.value < 10000 || cargoMass.value > 10000){
+         // document.getElementById("faultyItems").style.visibility = "visible";
          launchStatus.innerHTML = `Shuttle not ready for launch`;
          launchStatus.style.color = "red";
-         submit.preventDefault();
       }else{
          launchStatus.innerHTML = `Shuttle ready for launch`;
          launchStatus.style.color = "green";
@@ -56,7 +71,6 @@ window.addEventListener("load", function() {
          submit.preventDefault();
       }else{
          fuelStatus.innerHTML = `Fuel level high enough for launch`;
- 
       }
 
       if(cargoMass.value > 10000){
@@ -64,8 +78,9 @@ window.addEventListener("load", function() {
          submit.preventDefault();
       }else{
          cargoStatus.innerHTML = `Cargo mass low enough for launch`;
-
       }
+
+            
    });
    /* FETCH PLANETARY JSON */
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
