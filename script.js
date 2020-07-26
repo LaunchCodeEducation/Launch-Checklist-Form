@@ -18,9 +18,13 @@ window.addEventListener("load", function() {
       
       /* BLANK FIELDS CHECK */
       if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
+         document.getElementById("faultyItems").style.visibility = "hidden";
          alert("All fields are required!");
          submit.preventDefault();
+      }else{
+         document.getElementById("faultyItems").style.visibility ="visible"
       }
+
      
       /*PILOT NAME PLACEMENT */
       function allLetter(inputtxt) {
@@ -31,55 +35,59 @@ window.addEventListener("load", function() {
             return false;
          }
       };
-      
-      if ((allLetter(pilotName)) || (allLetter(copilotName)) === false) {
-         alert("Please only use letters for designating Pilot & CoPilot");
-         submit.preventDefault();
-      }
 
       if ((allLetter(pilotName))=== false) {
-         pilotStatus.innerHTML ="PILOT NOT SELECTED";
+         pilotStatus.innerHTML ="[YET TO BE DEFINED]";
       }else{
          pilotStatus.innerHTML = `${pilotName.value} is ready for Launch`;
       }
 
       if((allLetter(copilotName))=== false) {
-         copilotStatus.innerHTML ="COPILOT NOT SELECTED";
+         copilotStatus.innerHTML ="[YET TO BE DEFINED]";
       }else{
          copilotStatus.innerHTML = `${copilotName.value} is ready for Launch`;         
       }
       
+
       /* NUMBER ON LEVELS CHECK */
       if ((isNaN(fuelLevel.value)) === true || (isNaN(cargoMass.value)) === true) {
+         document.getElementById("faultyItems").style.visibility = "hidden";
          alert("Enter Valid Information for each field, please.")
          submit.preventDefault();
       }else{
-         document.getElementById("faultyItems").style.visibility = "visible";
-      }  
-
-      if(fuelLevel.value < 10000 || cargoMass.value > 10000){
-         // document.getElementById("faultyItems").style.visibility = "visible";
-         launchStatus.innerHTML = `Shuttle not ready for launch`;
-         launchStatus.style.color = "red";
-      }else{
-         launchStatus.innerHTML = `Shuttle ready for launch`;
-         launchStatus.style.color = "green";
+         if(fuelLevel.value < 10000 || cargoMass.value > 10000){
+            launchStatus.innerHTML = `Shuttle not ready for launch`;
+            launchStatus.style.color = "red";
+         }else{
+            launchStatus.innerHTML = `Shuttle ready for launch`;
+            launchStatus.style.color = "green";
+         }
       }
+ 
       
-      if(fuelLevel.value < 10000){
+      if(Number(fuelLevel.value) < 10000){
          fuelStatus.innerHTML = `Fuel level too low for launch`;
          submit.preventDefault();
       }else{
          fuelStatus.innerHTML = `Fuel level high enough for launch`;
       }
-
-      if(cargoMass.value > 10000){
+      
+      if(Number(cargoMass.value) > 10000){
          cargoStatus.innerHTML = `Cargo mass too high for launch`;
          submit.preventDefault();
       }else{
          cargoStatus.innerHTML = `Cargo mass low enough for launch`;
       }
 
+
+      /*FINAL CHECKER */
+      // if(fuelLevel.value < 10000 || cargoMass.value > 10000){
+      //    launchStatus.innerHTML = `Shuttle not ready for launch`;
+      //    launchStatus.style.color = "red";
+      // }else{
+      //    launchStatus.innerHTML = `Shuttle ready for launch`;
+      //    launchStatus.style.color = "green";
+      // }
             
    });
    /* FETCH PLANETARY JSON */
