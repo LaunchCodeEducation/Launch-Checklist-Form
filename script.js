@@ -58,9 +58,11 @@ window.addEventListener("load", function() {
          if(fuelLevel.value < 10000 || cargoMass.value > 10000){
             launchStatus.innerHTML = `Shuttle not ready for launch`;
             launchStatus.style.color = "red";
+            document.getElementById("launchForm").style.backgroundColor = "red"
          }else{
             launchStatus.innerHTML = `Shuttle ready for launch`;
             launchStatus.style.color = "green";
+            document.getElementById("launchForm").style.backgroundColor = "green"
          }
       }
  
@@ -80,14 +82,6 @@ window.addEventListener("load", function() {
       }
 
 
-      // /*FINAL CHECKER */
-      // // if(fuelLevel.value < 10000 || cargoMass.value > 10000){
-      // //    launchStatus.innerHTML = `Shuttle not ready for launch`;
-      // //    launchStatus.style.color = "red";
-      // // }else{
-      // //    launchStatus.innerHTML = `Shuttle ready for launch`;
-      // //    launchStatus.style.color = "green";
-      // // }
             
    });
    /* FETCH PLANETARY JSON */
@@ -96,8 +90,8 @@ window.addEventListener("load", function() {
          const missionTarget = document.getElementById("missionTarget");
          const targetRandomizer = Math.floor(Math.random() * json.length);
          missionTarget.innerHTML = `
-         <h2>Mission Destination</h2>
-         <ol>
+         <h2>MISSION DESTINATION</h2>
+         <ol id = "missionList">
             <li>Name: ${json[targetRandomizer].name}</li>
             <li>Diameter: ${json[targetRandomizer].diameter}</li>
             <li>Star: ${json[targetRandomizer].star}</li>
