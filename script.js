@@ -32,7 +32,8 @@ window.addEventListener("load", function() {
          if(inputtxt.value.match(letters)) {
             return true;
          }else{       
-            return false;
+            alert("Please only use letters in Pilot & Copilot's names");
+            return false;            
          }
       };
 
