@@ -80,14 +80,14 @@ window.addEventListener("load", function() {
       }
 
 
-      /*FINAL CHECKER */
-      // if(fuelLevel.value < 10000 || cargoMass.value > 10000){
-      //    launchStatus.innerHTML = `Shuttle not ready for launch`;
-      //    launchStatus.style.color = "red";
-      // }else{
-      //    launchStatus.innerHTML = `Shuttle ready for launch`;
-      //    launchStatus.style.color = "green";
-      // }
+      // /*FINAL CHECKER */
+      // // if(fuelLevel.value < 10000 || cargoMass.value > 10000){
+      // //    launchStatus.innerHTML = `Shuttle not ready for launch`;
+      // //    launchStatus.style.color = "red";
+      // // }else{
+      // //    launchStatus.innerHTML = `Shuttle ready for launch`;
+      // //    launchStatus.style.color = "green";
+      // // }
             
    });
    /* FETCH PLANETARY JSON */
