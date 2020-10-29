@@ -49,20 +49,6 @@ window.addEventListener("load", function(){
          launchStatus.innerHTML = "Shuttle not ready for launch";
          cargoStatus.innerHTML = "Cargo mass too high for launch";
       }
-
-
-
-      // if (fuelLevelInput < 10000){ 
-      //    launchStatus.style.color = "red";
-      //    launchStatus.innerHTML = "Shuttle not ready for launch";
-      // } else if (cargoMassInput > 10000){
-      //    launchStatus.style.color = "red";
-      //    launchStatus.innerHTML = "Shuttle not ready for launch"
-      // } else {
-      //    launchStatus.style.color = "green";
-      //    launchStatus.innerHTML = "Shuttle is ready for launch";
-      // }
-
       
       if (Number(fuelLevelInput) === true){
           fuelLevelInput;
@@ -75,31 +61,7 @@ window.addEventListener("load", function(){
          pilotStatus.innerHTML = `Pilot ${pilotNameInput} is ready for launch`;
          copilotStatus.innerHTML = `CoPilot ${coPilotNameInput} is ready for launch`;
        }
-         //  else if (isNaN(pilotNameInput) || isNaN(coPilotNameInput) || 
-      //  Number(fuelLevelInput) === true || Number(cargoMassInput) === true){
-      //    alert("Enter Valid Information");
-         // if (fuelLevelInput < 10,000){ 
-         //    launchStatus.style.color = "red";
-         //    launchStatus.innerHTML = "Shuttle not ready for launch";
-         // } else if (cargoMassInput > 10,000){
-         //    launchStatus.style.color = "red";
-         //    launchStatus.innerHTML = "Shuttle not ready for launch"
-         // } else {
-         //    launchStatus.style.color = "green";
-         //    launchStatus.innerHTML = "Shuttle is ready for launch";
-         // }
-         // When I uncomment this, the planet info doesnt load at all
-       
-      //  if (fuelLevelInput < 10,000){ 
-      //    launchStatus.style.color = "red";
-      //    launchStatus.innerHTML = "Shuttle not ready for launch";
-      // } else if (cargoMassInput > 10,000){
-      //    launchStatus.style.color = "red";
-      //    launchStatus.innerHTML = "Shuttle not ready for launch"
-      // } else {
-      //    launchStatus.style.color = "green";
-      //    launchStatus.innerHTML = "Shuttle is ready for launch";
-      // }
+        
        
    });
 
